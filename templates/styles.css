@@ -1,0 +1,590 @@
+/* Reset default styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url(https://images.unsplash.com/photo-1508615070457-7baeba4003ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) center center /cover;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2 {
+    font-weight: 400;
+}
+h1 {
+    font-size: 1.2rem; /* Adjust the size as needed */
+    font-weight: 300; /* Normal weight, less bold */
+    font-family: 'Poppins', sans-serif; /* Optional: Ensure the font matches the page */
+}
+
+
+/* Header */
+/* Navigation Bar */
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #333;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+nav .dropdown-content a {
+    padding: 10px 20px;
+    display: block;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+nav .dropdown-content a:hover {
+    background-color: #444;
+}
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    position: fixed;
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure the nav stays above other content */
+    width: 100%; /* Make sure the navigation bar spans the full width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visibility */
+}
+
+/* Other navigation styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+nav ul li:hover {
+    background-color: #444;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #333;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+nav .dropdown-content a {
+    padding: 10px 20px;
+    display: block;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+nav .dropdown-content a:hover {
+    background-color: #444;
+}
+
+/* nav .one{
+    margin-left: 1250px;
+   
+} */
+/* Home Section */
+.home-section {
+    background: url('https://images.unsplash.com/photo-1546482322-51d94fa8a15b') center center/cover;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+.home-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.home-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background: #ffcc00;
+    padding: 5px 30px;
+    font-size: 1.2rem;
+    color: #333;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #f39c12;
+}
+
+/* About Section */
+/* About Section */
+
+/* About Us Section */
+.about-us-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin: 30px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.about-us-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.about-us-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.creator {
+    width: 250px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.creator-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.creator h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #333;
+}
+
+.creator p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* About the Project Section */
+.about-project-section {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+    margin: 30px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.about-project-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-project-section p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-project-section ul {
+    list-style-type: none;
+    padding: 0;
+    color: #555;
+}
+
+.about-project-section ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.about-project-section ul li::before {
+    content: "✔️ ";
+    color: #ffcc00;
+}
+body, p, li {
+    text-align: justify;
+}
+
+/* Optionally, if you want to target only specific sections */
+.about-project-section p, 
+.about-project-section ul li, 
+.about-us-section p, 
+.footer-content p, 
+.footer-content ul li {
+    text-align: justify;}
+ /* Big Picture Section
+.image-text-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-image {
+    width: 40%;
+    border-radius: 10px;
+}
+
+.text-content {
+    width: 60%;
+    text-align: left;
+} */
+/* Disease Images in How It Works Section */
+/* .disease-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.disease-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+    text-align: center;
+}
+
+.disease-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+} */
+
+
+/* Prediction Section */
+.prediction-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+}
+
+.prediction-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.prediction-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.prediction-section .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.prediction-section .input-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.prediction-section .input-group input,
+.prediction-section .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.prediction-section .input-group input:focus,
+.prediction-section .input-group textarea:focus {
+    border-color: #ffcc00;
+}
+
+.prediction-section .sex-options input {
+    margin-right: 10px;
+}
+
+.prediction-section .symptoms-options input {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.prediction-section button {
+    padding: 12px 25px;
+    background-color: #ffcc00;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prediction-section button:hover {
+    background-color: #f39c12;
+}
+
+.prediction-section .prediction-result {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: none; /* Hidden by default */
+}
+
+.prediction-section .prediction-result h3 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.prediction-section .prediction-result p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .prediction-section {
+        padding: 40px 20px;
+    }
+
+    .prediction-section h2 {
+        font-size: 2rem;
+    }
+
+    .prediction-section .input-group input,
+    .prediction-section .input-group textarea {
+        font-size: 1rem;
+    }
+
+    .prediction-section button {
+        font-size: 1rem;
+    }
+}
+
+
+/* Contact Section */
+.contact-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.contact-section .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-section .input-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.contact-section .input-group input,
+.contact-section .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.contact-section .input-group input:focus,
+.contact-section .input-group textarea:focus {
+    border-color: #ffcc00;
+}
+
+.contact-section button {
+    padding: 12px 25px;
+    background-color: #ffcc00;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+    background-color: #f39c12;
+}
+
+.contact-section .contact-info {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contact-section .contact-info h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-section .contact-info ul {
+    list-style-type: none;
+    padding: 0;
+    color: #555;
+}
+
+.contact-section .contact-info ul li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.contact-section .contact-info a {
+    color: #0062cc;
+    text-decoration: none;
+}
+
+.contact-section .contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 40px 20px;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+
+    .contact-section .input-group input,
+    .contact-section .input-group textarea {
+        font-size: 1rem;
+    }
+
+    .contact-section button {
+        font-size: 1rem;
+    }
+}
+
+
+
+/* Footer Section */
+footer {
+    background: #080200;
+    color: #fff;
+    padding: 40px 20px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .footer-content h4 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-content ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-content ul li a {
+    color: #ffccbc;
+    text-decoration: none;
+  }
+  
+  .footer-content ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    color: #ffccbc;
+  }
+  .footer-title {
+     font-family: 'Dancing Script', cursive; ;
+    font-size: 1.8rem;
+}
+
+.footer-slogan {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;}

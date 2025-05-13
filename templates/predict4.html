@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Page</title>
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: url('images/Consultation with doctor online.jpg') center/cover;
+      color: #333;
+    }
+
+    nav {
+      background-color: transparent;
+      padding: 10px 0;
+      position: relative;
+      top: -20px;
+      left: 400px;
+      z-index: 1000;
+      width: 70%;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+    }
+
+    nav ul li {
+      padding: -30px 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #6d4c41;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 20px;
+      background: transparent;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #6d4c41;
+    }
+
+    .form-section {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form label {
+      font-weight: bold;
+      color: #6d4c41;
+    }
+
+    form input, form select, form button, .multi-select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    form input:focus, form select:focus {
+      border-color: #ff7043;
+      outline: none;
+    }
+
+    form button {
+      background: #ff7043;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: #e64a19;
+    }
+
+    /* Multi-Select Styles */
+    .multi-select {
+      position: relative;
+    }
+
+    .multi-select input {
+      cursor: pointer;
+    }
+
+    .multi-select-options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      max-height: 200px;
+      overflow-y: auto;
+      display: none;
+      z-index: 1000;
+    }
+
+    .multi-select-options label {
+      display: block;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .multi-select-options label:hover {
+      background: #f2f2f2;
+    }
+
+    .multi-select.active .multi-select-options {
+      display: block;
+    }
+
+    .output-section {
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .output-section h2 {
+      color: #6d4c41;
+    }
+
+    .output-section p {
+      color: #333;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+    </nav>
+    <h1>Prediction Form</h1>
+    <p>Fill out the form below to get your prediction!</p>
+  </header>
+
+  <!-- Form Section -->
+  <section class="form-section">
+    <form id="prediction-form">
+      <!-- Name Field -->
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <!-- Age Field -->
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" placeholder="Enter your age" min="1" max="120" required>
+
+      <!-- Sex Field -->
+      <label for="sex">Sex</label>
+      <select id="sex" name="sex" required>
+        <option value="" disabled selected>Select your sex</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <!-- Symptoms Field -->
+      <label for="symptoms">Symptoms</label>
+      <div class="multi-select" id="symptoms">
+        <input type="text" placeholder="Select symptoms" readonly>
+        <div class="multi-select-options">
+          <label><input type="checkbox" value="itching">itching</label>
+          <label><input type="checkbox" value="skin_rash">skin_rash</label>
+          <label><input type="checkbox" value="nodal_skin_eruptions">nodal_skin_eruptions</label>
+          <label><input type="checkbox" value="continuous_sneezing">continuous_sneezing</label>
+          <label><input type="checkbox" value="shivering">shivering</label>
+          <label><input type="checkbox" value="chills">chills</label>
+          <label><input type="checkbox" value="joint_pain">joint_pain</label>
+          <label><input type="checkbox" value="stomach_pain">stomach_pain</label>
+          <label><input type="checkbox" value="acidity">acidity</label>
+          <label><input type="checkbox" value="ulcers_on_tongue">ulcers_on_tongue</label>
+          <label><input type="checkbox" value="muscle_wasting">muscle_wasting</label>
+          <label><input type="checkbox" value="vomiting">vomiting</label>
+          <label><input type="checkbox" value="burning_micturition">burning_micturition</label>
+          <label><input type="checkbox" value="spotting_ urination">spotting_ urination</label>
+          <label><input type="checkbox" value="fatigue">fatigue</label>
+          <label><input type="checkbox" value="weight_gain">weight_gain</label>
+          <label><input type="checkbox" value="anxiety">anxiety</label>
+          <label><input type="checkbox" value="cold_hands_and_feets">cold_hands_and_feets</label>
+          <label><input type="checkbox" value="mood_swings">mood_swings</label>
+          <label><input type="checkbox" value="weight_loss">weight_loss</label>
+          <label><input type="checkbox" value="restlessness">restlessness</label>
+          <label><input type="checkbox" value="lethargy">lethargy</label>
+          <label><input type="checkbox" value="patches_in_throat">patches_in_throat</label>
+          <label><input type="checkbox" value="irregular_sugar_level">irregular_sugar_level</label>
+          <label><input type="checkbox" value="cough">cough</label>
+          <label><input type="checkbox" value="high_fever">high_fever</label>
+          <label><input type="checkbox" value="sunken_eyes">sunken_eyes</label>
+          <label><input type="checkbox" value="breathlessness">breathlessness</label>
+          <label><input type="checkbox" value="sweating">sweating</label>
+          <label><input type="checkbox" value="dehydration">dehydration</label>
+          <label><input type="checkbox" value="indigestion">indigestion</label>
+          <label><input type="checkbox" value="headache">headache</label>
+          <label><input type="checkbox" value="yellowish_skin">yellowish_skin</label>
+          <label><input type="checkbox" value="dark_urine">dark_urine</label>
+          <label><input type="checkbox" value="nausea">nausea</label>
+          <label><input type="checkbox" value="loss_of_appetite">loss_of_appetite</label>
+          <label><input type="checkbox" value="pain_behind_the_eyes">pain_behind_the_eyes</label>
+          <label><input type="checkbox" value="back_pain">back_pain</label>
+          <label><input type="checkbox" value="constipation">constipation</label>
+          <label><input type="checkbox" value="abdominal_pain">abdominal_pain</label>
+          <label><input type="checkbox" value="diarrhoea">diarrhoea</label>
+          <label><input type="checkbox" value="mild_fever">mild_fever</label>
+          <label><input type="checkbox" value="yellow_urine">yellow_urine</label>
+          <label><input type="checkbox" value="yellowing_of_eyes">yellowing_of_eyes</label>
+          <label><input type="checkbox" value="acute_liver_failure">acute_liver_failure</label>
+          <label><input type="checkbox" value="fluid_overload">fluid_overload</label>
+          <label><input type="checkbox" value="swelling_of_stomach">swelling_of_stomach</label>
+          <label><input type="checkbox" value="swelled_lymph_nodes">swelled_lymph_nodes</label>
+          <label><input type="checkbox" value="malaise">malaise</label>
+          <label><input type="checkbox" value="blurred_and_distorted_vision">blurred_and_distorted_vision</label>
+          <label><input type="checkbox" value="phlegm">phlegm</label>
+          <label><input type="checkbox" value="throat_irritation">throat_irritation </label>
+          <label><input type="checkbox" value="redness_of_eyes">redness_of_eyes</label>
+          <label><input type="checkbox" value="sinus_pressure">sinus_pressure</label>
+          <label><input type="checkbox" value="runny_nose">runny_nose</label>
+          <label><input type="checkbox" value="congestion">congestion</label>
+          <label><input type="checkbox" value="chest_pain">chest_pain</label>
+          <label><input type="checkbox" value="weakness_in_limbs">weakness_in_limbs</label>
+          <label><input type="checkbox" value="fast_heart_rate">fast_heart_rate</label>
+          <label><input type="checkbox" value="pain_during_bowel_movements">pain_during_bowel_movements</label>
+          <label><input type="checkbox" value="pain_in_anal_region">pain_in_anal_region</label>
+          <label><input type="checkbox" value="bloody_stool">bloody_stool</label>
+          <label><input type="checkbox" value="irritation_in_anus">irritation_in_anus</label>
+          <label><input type="checkbox" value="neck_pain">neck_pain</label>
+          <label><input type="checkbox" value="dizziness">dizziness</label>
+          <label><input type="checkbox" value="cramps">cramps</label>
+          <label><input type="checkbox" value="bruising">bruising</label>
+          <label><input type="checkbox" value="obesity">obesity</label>
+          <label><input type="checkbox" value="swollen_legs">swollen_legs</label>
+          <label><input type="checkbox" value="swollen_blood_vessels">swollen_blood_vessels</label>
+          <label><input type="checkbox" value="puffy_face_and_eyes">puffy_face_and_eyes</label>
+          <label><input type="checkbox" value="enlarged_thyroid">enlarged_thyroid</label>
+          <label><input type="checkbox" value="brittle_nails">brittle_nails</label>
+          <label><input type="checkbox" value="swollen_extremeties">swollen_extremeties</label>
+          <label><input type="checkbox" value="excessive_hunger">excessive_hunger</label>
+          <label><input type="checkbox" value="extra_marital_contacts">extra_marital_contacts</label>
+          <label><input type="checkbox" value="drying_and_tingling_lips">drying_and_tingling_lips</label>
+          <label><input type="checkbox" value="slurred_speech">slurred_speech</label>
+          <label><input type="checkbox" value="knee_pain">knee_pain</label>
+          <label><input type="checkbox" value="hip_joint_pain">hip_joint_pain</label>
+          <label><input type="checkbox" value="muscle_weakness">muscle_weakness</label>
+          <label><input type="checkbox" value="stiff_neck">stiff_neck</label>
+          <label><input type="checkbox" value="swelling_joints">swelling_joints</label>
+          <label><input type="checkbox" value="movement_stiffness">movement_stiffness</label>
+          <label><input type="checkbox" value="spinning_movements">spinning_movements</label>
+          <label><input type="checkbox" value="loss_of_balance">loss_of_balance</label>
+          <label><input type="checkbox" value="unsteadiness">unsteadiness</label>
+          <label><input type="checkbox" value="weakness_of_one_body_side">weakness_of_one_body_side</label>
+          <label><input type="checkbox" value="loss_of_smell">loss_of_smell</label>
+          <label><input type="checkbox" value="bladder_discomfort">bladder_discomfort</label>
+          <label><input type="checkbox" value="foul_smell_of urine">foul_smell_of urine</label>
+          <label><input type="checkbox" value="continuous_feel_of_urine">continuous_feel_of_urine</label>
+          <label><input type="checkbox" value="passage_of_gases">passage_of_gases</label>
+          <label><input type="checkbox" value="internal_itching">internal_itching</label>
+          <label><input type="checkbox" value="toxic_look_(typhos)">toxic_look_(typhos)</label>
+          <label><input type="checkbox" value="depression">depression</label>
+          <label><input type="checkbox" value="irritability">irritability</label>
+          <label><input type="checkbox" value="muscle_pain">muscle_pain</label>
+          <label><input type="checkbox" value="altered_sensorium">altered_sensorium</label>
+          <label><input type="checkbox" value="red_spots_over_body">red_spots_over_body</label>
+          <label><input type="checkbox" value="belly_pain">belly_pain</label>
+          <label><input type="checkbox" value="abnormal_menstruation">abnormal_menstruation</label>
+          <label><input type="checkbox" value="dischromic _patches">dischromic _patches</label>
+          <label><input type="checkbox" value="watering_from_eyes">watering_from_eyes</label>
+          <label><input type="checkbox" value="increased_appetite">increased_appetite</label>
+          <label><input type="checkbox" value="polyuria">polyuria</label>
+          <label><input type="checkbox" value="family_history">family_history</label>
+          <label><input type="checkbox" value="mucoid_sputum">mucoid_sputum</label>
+          <label><input type="checkbox" value="rusty_sputum">rusty_sputum</label>
+          <label><input type="checkbox" value="lack_of_concentration">lack_of_concentration</label>
+          <label><input type="checkbox" value="visual_disturbances">visual_disturbances</label>
+          <label><input type="checkbox" value="receiving_blood_transfusion">receiving_blood_transfusion</label>
+          <label><input type="checkbox" value="receiving_unsterile_injections">receiving_unsterile_injections</label>
+          <label><input type="checkbox" value="coma">coma</label>
+          <label><input type="checkbox" value="stomach_bleeding">stomach_bleeding</label>
+          <label><input type="checkbox" value="distention_of_abdomen">distention_of_abdomen</label>
+          <label><input type="checkbox" value="history_of_alcohol_consumption">history_of_alcohol_consumption</label>
+          <label><input type="checkbox" value="fluid_overload">fluid_overload</label>
+          <label><input type="checkbox" value="blood_in_sputum">blood_in_sputum</label>
+          <label><input type="checkbox" value="prominent_veins_on_calf">prominent_veins_on_calf</label>
+          <label><input type="checkbox" value="palpitations">palpitations</label>
+          <label><input type="checkbox" value="painful_walking">painful_walking</label>
+          <label><input type="checkbox" value="pus_filled_pimples">pus_filled_pimples</label>
+          <label><input type="checkbox" value="blackheads">blackheads</label>
+          <label><input type="checkbox" value="scurring">scurring</label>
+          <label><input type="checkbox" value="skin_peeling">skin_peeling</label>
+          <label><input type="checkbox" value="silver_like_dusting">silver_like_dusting</label>
+          <label><input type="checkbox" value="small_dents_in_nails">small_dents_in_nails</label>
+          <label><input type="checkbox" value="inflammatory_nails">inflammatory_nails</label>
+          <label><input type="checkbox" value="blister">blister</label>
+          <label><input type="checkbox" value="red_sore_around_nose">red_sore_around_nose</label>
+          <label><input type="checkbox" value="yellow_crust_ooze">yellow_crust_ooze</label>
+        </div>
+      </div>
+
+      <!-- BMI Calculation -->
+      <label for="height">Height (cm)</label>
+      <input type="number" id="height" name="height" placeholder="Enter height" required>
+
+      <label for="weight">Weight (kg)</label>
+      <input type="number" id="weight" name="weight" placeholder="Enter weight" required>
+
+      <label for="bmi">BMI</label>
+      <input type="number" id="bmi" name="bmi" placeholder="BMI will be calculated" readonly>
+
+      <!-- Submit Button -->
+      <button type="submit">Next</button>
+    </form>
+  </section>
+
+  <!-- Output Section -->
+  <section class="output-section" id="output-section" style="display: none;">
+    <h2>Prediction Result</h2>
+    <p id="output-message"></p>
+  </section>
+
+  <script>
+//     // BMI Calculation
+//     document.getElementById('height').addEventListener('input', calculateBMI);
+//     document.getElementById('weight').addEventListener('input', calculateBMI);
+
+//     // function calculateBMI() {
+//     //   const height = parseFloat(document.getElementById('height').value) / 100;
+//     //   const weight = parseFloat(document.getElementById('weight').value);
+//     //   if (height && weight) {
+//     //     const bmi = (weight / (height * height)).toFixed(2);
+//     //     document.getElementById('bmi').value = bmi;
+//     //   }
+//     // }
+
+//     function calculateBMI() {
+//     const height = parseFloat(document.getElementById('height').value) / 100;
+//     const weight = parseFloat(document.getElementById('weight').value);
+//     if (height > 0 && weight > 0) {
+//         const bmi = (weight / (height * height)).toFixed(2);
+//         document.getElementById('bmi').value = bmi;
+//     } else {
+//         document.getElementById('bmi').value = '';
+//     }
+// }
+
+//     // Multi-Select for Symptoms
+//     document.querySelector('.multi-select').addEventListener('click', function () {
+//       this.classList.toggle('active');
+//     });
+
+//     const symptomInputs = document.querySelectorAll('.multi-select-options input');
+//     symptomInputs.forEach(input => {
+//       input.addEventListener('change', () => {
+//         const selected = Array.from(symptomInputs)
+//           .filter(i => i.checked)
+//           .map(i => i.value)
+//           .join(', ');
+//         document.querySelector('.multi-select input').value = selected;
+//       });
+//     });
+
+
+//     // Form Submission
+//     document.getElementById('prediction-form').addEventListener('submit', function (e) {
+//       e.preventDefault();
+
+//       // Collect form data
+//       const name = document.getElementById('name').value;
+//       const age = document.getElementById('age').value;
+//       const sex = document.getElementById('sex').value;
+//       const bmi = document.getElementById('bmi').value;
+//       const symptoms = document.querySelector('.multi-select input').value;
+       
+//        // Ensure BMI and symptoms are valid
+//     if (!bmi || symptoms.length === 0) {
+//         alert('Please fill out all fields correctly!');
+//         return;
+//     }
+
+//     // Send data to the backend
+//     const response = await fetch('/predict', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ bmi: parseFloat(bmi), symptoms }),
+//     });
+
+
+
+//       // Display output
+//       const output = `
+//         Hello ${name}, based on your input:
+//         - Age: ${age}
+//         - Sex: ${sex}
+//         - BMI: ${bmi}
+//         - Symptoms: ${symptoms}
+//         This is your prediction: [Prediction Placeholder]
+//       `;
+//       document.getElementById('output-message').innerText = outputMessage;
+//       document.getElementById('output-section').style.display = 'block';
+  
+
+
+
+      
+
+// document.getElementById('height').addEventListener('input', calculateBMI);
+// document.getElementById('weight').addEventListener('input', calculateBMI);
+
+// const response = await fetch('http://127.0.0.1:5000/predict', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ bmi: parseFloat(bmi), symptoms }),
+// });
+
+//     const result = await response.json();
+//     const outputMessage = `
+//         Hello ${name}, based on your input:
+//         - Age: ${age}```javascript
+// // BMI Calculation
+// document.getElementById('height').addEventListener('input', calculateBMI);
+// document.getElementById('weight').addEventListener('input', calculateBMI);
+
+// function calculateBMI() {
+//   const height = parseFloat(document.getElementById('height').value) / 100;
+//   const weight = parseFloat(document.getElementById('weight').value);
+//   if (height > 0 && weight > 0) {
+//     const bmi = (weight / (height * height)).toFixed(2);
+//     document.getElementById('bmi').value = bmi;
+//   } else {
+//     document.getElementById('bmi').value = '';
+//   }
+// }
+
+// // Multi-Select for Symptoms
+// document.querySelector('.multi-select').addEventListener('click', function () {
+//   this.classList.toggle('active');
+// });
+
+// const symptomInputs = document.querySelectorAll('.multi-select-options input');
+// symptomInputs.forEach(input => {
+//   input.addEventListener('change', () => {
+//     const selected = Array.from(symptomInputs)
+//       .filter(i => i.checked)
+//       .map(i => i.value)
+//       .join(', ');
+//     document.querySelector('.multi-select input').value = selected;
+//   });
+// });
+
+// // Form Submission
+// document.getElementById('prediction-form').addEventListener('submit', async function (e) {
+//   e.preventDefault();
+
+//   // Collect form data
+//   const name = document.getElementById('name').value;
+//   const age = document.getElementById('age').value;
+//   const sex = document.getElementById('sex').value;
+//   const bmi = document.getElementById('bmi').value;
+//   const symptoms = document.querySelector('.multi-select input').value;
+
+//   // Ensure BMI and symptoms are valid
+//   if (!bmi || symptoms.length === 0) {
+//     alert('Please fill out all fields correctly!');
+//     return;
+//   }
+
+//   try {
+//     // Send data to the backend
+//     const response = await fetch('http://127.0.0.1:5000/predict', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ bmi: parseFloat(bmi), symptoms }),
+//     });
+
+//     const result = await response.json();
+//     if (response.ok) {
+//       const outputMessage = `
+//         Hello ${name}, based on your input:
+//         - Age: ${age}
+//         - Sex: ${sex}
+//         - BMI: ${bmi}
+//         - Symptoms: ${symptoms}
+//         Prediction: ${result.prediction}
+//       `;
+//       document.getElementById('output-message').innerText = outputMessage;
+//       document.getElementById('output-section').style.display = 'block';
+//     } else {
+//       alert(result.error || 'Prediction failed!');
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     alert('Error occurred while making prediction!');
+//   }
+// });
+// ```
+//         - Sex: ${sex}
+//         - BMI: ${bmi}
+//         - Symptoms: ${symptoms.join(', ')}
+//         Prediction: ${result.prediction}
+//     `;
+
+//     document.getElementById('output-message').innerText = outputMessage;
+//     document.getElementById('output-section').style.display = 'block';
+
+
+//     const result = await response.json();
+//     if (response.ok) {
+//         document.getElementById('output-message').innerText = `Prediction: ${result.prediction}`;
+//         document.getElementById('output-section').style.display = 'block';
+//     } else {
+//         alert(result.error || 'Prediction failed!');
+//     }
+// });
+// BMI Calculation
+document.getElementById('height').addEventListener('input', calculateBMI);
+document.getElementById('weight').addEventListener('input', calculateBMI);
+
+function calculateBMI() {
+  const height = parseFloat(document.getElementById('height').value) / 100;  // Convert height to meters
+  const weight = parseFloat(document.getElementById('weight').value);
+  if (height && weight) {
+    const bmi = (weight / (height * height)).toFixed(2);  // Calculate BMI
+    document.getElementById('bmi').value = bmi;  // Display BMI
+  }
+}
+
+// Multi-Select for Symptoms
+document.querySelector('.multi-select').addEventListener('click', function () {
+  this.classList.toggle('active');
+});
+
+const symptomInputs = document.querySelectorAll('.multi-select-options input');
+symptomInputs.forEach(input => {
+  input.addEventListener('change', () => {
+    const selected = Array.from(symptomInputs)
+      .filter(i => i.checked)
+      .map(i => i.value)
+      .join(', ');
+    document.querySelector('.multi-select input').value = selected;  // Update selected symptoms
+  });
+});
+
+// Form Submission to Flask Backend
+document.getElementById('prediction-form').addEventListener('submit', async function (e) {
+  e.preventDefault();  // Prevent form from submitting the traditional way
+
+  // Collect form data
+  const name = document.getElementById('name').value;
+  const age = document.getElementById('age').value;
+  const sex = document.getElementById('sex').value;
+  const bmi = document.getElementById('bmi').value;
+  const symptoms = document.querySelector('.multi-select input').value;
+
+  // Prepare the data to send to the Flask backend
+  const formData = {
+    name: name,
+    age: parseInt(age),
+    sex: sex,
+    bmi: parseFloat(bmi),
+    symptoms: symptoms
+  };
+  console.log("FormData to send:", formData);
+  try {
+    // Send the data to Flask using fetch (POST request)
+    const response = await fetch('/predict', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      //body: JSON.stringify({ bmi: parseFloat(bmi), symptoms }), // Send the data as a JSON string
+      body: JSON.stringify(formData)
+        // age: age,
+        // sex: sex,
+        // bmi: bmi,
+        // symptoms: symptoms,
+      
+    });
+    const result = await response.json();
+    console.log('Server response:', result);
+
+
+    if (result.prediction) {
+      // const data = await response.json();  // Parse the response as JSON
+      // Display prediction result
+
+      
+      const outputMessage = `
+        Hello ${name}, based on your input:
+        - Age: ${age}
+        - Sex: ${sex}
+        - BMI: ${bmi}
+        - Symptoms: ${symptoms}
+        This is your prediction: ${data.prediction}  
+      `;
+      document.getElementById('output-message').innerText = outputMessage;
+      document.getElementById('output-section').style.display = 'block';  // Show the prediction section
+    } 
+    else if (result.error) {
+      throw new Error(result.error);}
+    else {
+      throw new Error('Failed to fetch prediction');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    document.getElementById('output-message').innerText = 'Error occurred: ' + error.message;
+    document.getElementById('output-section').style.display = 'block';
+  }
+  console.log('Server response:', result);
+
+
+});
+
+  </script>
+</body>
+</html>

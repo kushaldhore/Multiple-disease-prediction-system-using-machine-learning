@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <!-- Link to Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+nav {
+    background-color: transparent;
+    padding: 10px 0;
+    position: relative;
+    top: -20px;
+    left: 400px;
+    z-index: 1000;
+    width: 70%;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+nav ul li {
+    position: relative;
+    padding: 10px 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    color:  #6d4c41;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+nav ul li:hover {
+    background-color:  #e0ceaf;
+}
+header {
+  text-align: center;
+  background: #f7f5ed;
+  padding: 10px 20px;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #6d4c41;
+}
+header p {
+  margin-top: 10px;
+  color: #8d6e63;
+}
+
+/* About Us Section */
+.about-section {
+  padding: 40px 20px;
+  background: #fff3e0;
+  text-align: center;
+}
+.about-section h2 {
+  font-size: 2rem;
+  color: #6d4c41;
+}
+.about-section p {
+  color: #8d6e63;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Mission and Vision Section */
+.mission-vision {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px 20px;
+  background: #f7f5ed;
+}
+.mission-box, .vision-box {
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.mission-box h3, .vision-box h3 {
+  color: #6d4c41;
+}
+.mission-box p, .vision-box p {
+  color: #8d6e63;
+}
+
+/* Team Section */
+.team-section {
+  padding: 40px 20px;
+  background: #fff3e0;
+  text-align: center;
+}
+.team-section h2 {
+  font-size: 2rem;
+  color: #6d4c41;
+}
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.team-member {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.team-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.team-member h3 {
+  margin: 10px 0;
+  color: #6d4c41;
+}
+.team-member p {
+  color: #8d6e63;
+}
+
+/* Footer Section */
+footer {
+  background: #080200;
+  color: #fff;
+  padding: 40px 20px;
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.footer-content h4 {
+  margin-bottom: 10px;
+}
+.footer-content ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-content ul li {
+  margin-bottom: 10px;
+}
+.footer-content ul li a {
+  color: #ffccbc;
+  text-decoration: none;
+}
+.footer-content ul li a:hover {
+  text-decoration: underline;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  color: #ffccbc;
+}
+</style>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <!-- <div class="one"><ul><li><a href="#login">Login</a></li></ul></div> -->
+      </ul>
+    </nav>
+    <h1>About Us</h1>
+    <p>Learn more about our mission, vision, and the team behind the Multiple Disease Prediction System.</p>
+  </header>
+
+  <!-- About Us Section -->
+  <section class="about-section">
+    <h2>Who We Are</h2>
+    <p>We are a team dedicated to transforming healthcare through the power of technology, aiming to create accessible and accurate predictive tools for a better tomorrow.</p>
+  </section>
+
+  <!-- Mission and Vision Section -->
+  <section class="mission-vision">
+    <div class="mission-box">
+      <h3>Our Mission</h3>
+      <p>To leverage innovative technology to provide reliable, accessible healthcare solutions that improve lives.</p>
+    </div>
+    <div class="vision-box">
+      <h3>Our Vision</h3>
+      <p>To lead the future of healthcare with predictive systems that empower individuals and communities globally.</p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <h2>Meet the Team</h2>
+    <div class="team-members">
+      <div class="team-member">
+        <img src="team1.jpg" alt="Team Member">
+        <h3>Kushal & Aparna</h3>
+        <p>CEO & Founder</p>
+      </div>
+      <div class="team-member">
+        <img src="team2.jpg" alt="Team Member">
+        <h3>Kushal Dhore</h3>
+        <p>Lead Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="team3.jpg" alt="Team Member">
+        <h3>Aparna Sawant</h3>
+        <p>Data Scientist</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <div class="logo">
+        <h3>About Us</h3>
+        <p>Driving healthcare innovation through technology.</p>
+      </div>
+      <div class="navigation">
+        <h4>Helpful Links</h4>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+      <div class="additional-links">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="contact-details">
+        <h4>Stay Connected</h4>
+        <p>Email: info@example.com</p>
+        <p>Phone: +91-1234567890</p>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2023 YourCompanyName | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
